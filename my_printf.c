@@ -43,7 +43,7 @@ char *reverseString(const char *str) {
 }
 
 char *toOctalNumber(int num) {
-    char *res = malloc(20);
+    char *res = calloc(20, sizeof(char));
     int i = 0;
     do {
         res[i++] = num % 8 + '0';
@@ -56,12 +56,12 @@ char *toOctalNumber(int num) {
 
 char *createStringRepresentation(int num) {
     if (num == 0) {
-        char *zero = malloc(2);
+        char *zero = calloc(2, sizeof(char));
         zero[0] = '0';
         zero[1] = '\0';
         return zero;
     }
-    char *string = malloc(20);
+    char *string = calloc(9, sizeof(char));
     int i = 0;
 
     if (num < 0) {
@@ -133,8 +133,12 @@ int my_printf(const char *str, ...) {
     return size;
 }
 
-int main(void) {
-    int size = my_printf("%s!\n", "HELLO WORLD");
-    printf("%d\n", size);
-    return 0;
+
+int main() {
+    char ch = 'A';
+    char *str = "Hello, World!";
+    int dec = -123;
+    unsigned int oct = 1234567890;
+    unsigned int uns = 4294967295;
+    unsigned int hex = 0xABCDEF;
 }
